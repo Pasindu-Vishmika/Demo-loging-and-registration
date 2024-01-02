@@ -7,7 +7,7 @@
 
 
     $uname      =   $_POST['username'];
-    $upass      =   password_hash($_POST["pass"],PASSWORD_DEFAULT);
+    $upass      =   md5($_POST["pass1"]);
     $uemail     =   $_POST['email'];
 
     if (isset($_POST['username']) && isset($_POST['pass1']) && isset($_POST['email']) ){
@@ -21,11 +21,12 @@
         $sql = "INSERT INTO userdata (username,email,password) VALUES ('$uname','$uemail','$upass')";
         $con -> query ($sql);
         $con -> close();
-        header("Location: index.html ?error=sucess");
+
+        header("Location: index.php ?error=sucess");
         exit();
     }
     else{
-        header("Location: register.html ?error=mismatch");
+        header("Location: register.php ?error=mismatch");
         exit();
         }
         

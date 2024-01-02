@@ -1,4 +1,5 @@
 <?php
+session_start();
 $host = "localhost";
 $name = "root";
 $pass = "";
@@ -14,26 +15,31 @@ $emailOrUsername = $_POST['username'];
 $password = $_POST["pass"];
 
 if (empty($emailOrUsername) || empty($password)) {
-    header("Location: index.html?error=empty");
+    $_SESSION['error'] = "empty";
+    header("Location: index.php?");
     exit();
 }
 
 $sql = "SELECT * FROM userdata WHERE email='$emailOrUsername' OR username='$emailOrUsername';";
 $result = $con->query($sql);
-
 if ($result->num_rows > 0) {
     $user = $result->fetch_assoc();
 
     $userPasswordFromDB = $user['password'];
-    if (varpassword_verfy($password,$userPasswordFromDB)) {
+
+
+    if (md5($password)===$userPasswordFromDB) {
+
         header("Location: draft_create.php?name=" . $user['username']);
         exit();
     } else {
-        header("Location: index.html?error=invalid");
+        $_SESSION['error'] = "invalid";
+        header("Location: index.php");
         exit();
     }
 } else {
-    header("Location: index.html?error=notfound");
+    $_SESSION['error'] = "not-found";
+    header("Location: index.php");
     exit();
 }
 

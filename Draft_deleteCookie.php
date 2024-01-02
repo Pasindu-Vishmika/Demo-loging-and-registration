@@ -1,12 +1,12 @@
 <?php
 
 if (!isset($_COOKIE['username'])) {
-    header("Location: index.html?error=wrong");
+    header("Location: index.php?error=wrong");
     exit;
 }
 else{
     setcookie("username","",time()-1);
-    header("Location: draft_form.html");
+    header("Location: index.php");
     exit;
 }
 

@@ -24,8 +24,11 @@
 </body>
 
 <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const error = urlParams.get('error');
+    
+    const error = "<?php 
+    session_start();
+    echo $_SESSION['error'];
+    $_SESSION['error'] = "";?>"
 
     if (error === 'invalid') {
         const errorMessage = document.querySelector('.error-message');
@@ -43,7 +46,7 @@
         errorMessage.textContent = 'Session expired. Log again .';
         errorMessage.style.display = 'block';
      }
-    else if (error === 'notfound') {
+    else if (error === 'not-found') {
             const errorMessage = document.querySelector('.error-message');
             errorMessage.textContent = 'Sorry this user not found';
             errorMessage.style.display = 'block';
@@ -54,6 +57,8 @@
         errorMessage.style.display = 'block';
         errorMessage.style.color = 'green';
     }
+    urlParams.delete('error');
+    error=""
 </script>
 
 </html>
