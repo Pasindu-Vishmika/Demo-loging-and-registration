@@ -21,27 +21,21 @@ if (empty($emailOrUsername) || empty($password)) {
 $sql = "SELECT * FROM userdata WHERE email='$emailOrUsername' OR username='$emailOrUsername';";
 $result = $con->query($sql);
 
-if ($result->num_rows > 0) //{
+if ($result->num_rows > 0) {
     $user = $result->fetch_assoc();
 
     $userPasswordFromDB = $user['password'];
-$inputPasswordHashed = md5($password); // Hash the input password with md5
-
-echo "User Input Password (hashed): " . $inputPasswordHashed . "<br>";
-echo "Password from Database: " . $userPasswordFromDB . "<br>";
-
-
-//     if ($inputPasswordHashed === $userPasswordFromDB) {
-//         header("Location: draft_create.php?name=" . $user['username']);
-//         exit();
-//     } else {
-//         header("Location: index.html?error=invalid");
-//         exit();
-//     }
-// } else {
-//     header("Location: index.html?error=notfound");
-//     exit();
-// }
+    if (varpassword_verfy($password,$userPasswordFromDB)) {
+        header("Location: draft_create.php?name=" . $user['username']);
+        exit();
+    } else {
+        header("Location: index.html?error=invalid");
+        exit();
+    }
+} else {
+    header("Location: index.html?error=notfound");
+    exit();
+}
 
 $con->close();
 ?>
