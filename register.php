@@ -7,7 +7,7 @@
 
 
     $uname      =   $_POST['username'];
-    $upass      =   password_hash($_POST['pass1'],PASSWORD_BCRYPT);
+    $upass      =   md5($_POST["pass"]);
     $uemail     =   $_POST['email'];
 
     if (isset($_POST['username']) && isset($_POST['pass1']) && isset($_POST['email']) ){

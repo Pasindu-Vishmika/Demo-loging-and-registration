@@ -1,7 +1,7 @@
 <?php
 
 if (!isset($_COOKIE['username'])) {
-    header("Location: draft_form.html?error=wrong");
+    header("Location: index.html?error=wrong");
     exit;
 }
 else{

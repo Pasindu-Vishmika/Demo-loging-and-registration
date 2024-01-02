@@ -1,9 +1,10 @@
 <?php
 
-    if (!isset($_COOKIE['username'])) {
+     if (!isset($_COOKIE['username'])) {
         header("Location: index.html?error=wrong");
 
-    } else {
+     } else {
+      
 
         $name = $_COOKIE['username'];
         echo "<h1>Welcome $name to the Dashboard</h1>";

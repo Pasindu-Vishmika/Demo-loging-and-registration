@@ -1,9 +1,11 @@
 <?php
-    if(!isset($_GET['username'])){
+    if(!isset($_GET['name'])){
         header("Location: index.html");
         exit;
     }
-    setcookie("username",$_GET['username'],time()+3600);
+
+    
+    setcookie("username",$_GET['name'],time()+3600);
     header("Location: Dashboard.php");
     
 ?>
