@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+}
+
+form {
+    width: 400px; /* Adjust the form width */
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 40px; /* Increase padding for more space */
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+}
+
+fieldset {
+    border: none;
+}
+
+legend {
+    font-size: 1.5em; /* Increase legend font size */
+    font-weight: bold;
+    color: #1877f2; /* Facebook blue color */
+}
+
+label {
+    display: block;
+    margin-bottom: 10px; /* Reduce label spacing */
+    color: #333;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] {
+    width: calc(100% - 20px);
+    padding: 15px; /* Increase input padding */
+    margin-bottom: 20px; /* Increase input margin */
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px; /* Increase font size */
+}
+
+input[type="reset"],
+input[type="submit"] {
+    padding: 15px 25px; /* Increase button padding */
+    font-size: 18px; /* Increase button font size */
+    background-color: #1877f2; /* Facebook blue color */
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+    background-color: #1659a3; /* Darker shade of Facebook blue */
+}
+
+h1 {
+    color: #1877f2; /* Facebook blue color */
+    font-size: 2em; /* Increase header font size */
+}
+
+
+.error-message {
+    display: none; /* Initially hide error message */
+    color: red;
+    margin-top: 10px; /* Adjust margin */
+}
