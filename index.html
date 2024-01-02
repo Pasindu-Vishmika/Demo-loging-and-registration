@@ -42,6 +42,11 @@
         const errorMessage = document.querySelector('.error-message');
         errorMessage.textContent = 'Session expired. Log again .';
         errorMessage.style.display = 'block';
+     }
+    else if (error === 'notfound') {
+            const errorMessage = document.querySelector('.error-message');
+            errorMessage.textContent = 'Sorry this user not found';
+            errorMessage.style.display = 'block';
     }
     else if (error === 'sucess') {
         const errorMessage = document.querySelector('.error-message');
