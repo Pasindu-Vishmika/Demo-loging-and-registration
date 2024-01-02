@@ -57,8 +57,7 @@
         errorMessage.style.display = 'block';
         errorMessage.style.color = 'green';
     }
-    urlParams.delete('error');
-    error=""
+
 </script>
 
 </html>

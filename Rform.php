@@ -54,14 +54,15 @@
         }
     }
     
-    const urlParams = new URLSearchParams(window.location.search);
-    const error = urlParams.get('error');
+    const error = "<?php 
+    session_start();
+    echo $_SESSION['error'];
+    $_SESSION['error'] = "";?>"
 
     if (error === 'mismatch') {
         const errorMessage = document.querySelector('.error-message');
         errorMessage.textContent = 'Please Register again';
         errorMessage.style.display = 'block';
-
 
     }
 

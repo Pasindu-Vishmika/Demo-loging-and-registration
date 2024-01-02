@@ -1,7 +1,9 @@
-<?php
+<?
+session_start();
 
 if (!isset($_COOKIE['username'])) {
-    header("Location: index.php?error=wrong");
+    $_SESSION['error'] = "wrong";
+    header("Location: index.php");
     exit;
 }
 else{

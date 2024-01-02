@@ -1,7 +1,8 @@
 <?php
-
-     if (!isset($_COOKIE['username'])) {
-        header("Location: index.html?error=wrong");
+   session_start();
+   if (!isset($_COOKIE['username'])) {
+      $_SESSION['error'] = "wrong";
+      header("Location: index.php");
 
      } else {
       

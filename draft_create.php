@@ -1,6 +1,6 @@
 <?php
     if(!isset($_GET['name'])){
-        header("Location: index.html");
+        header("Location: index.php");
         exit;
     }
 

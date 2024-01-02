@@ -1,5 +1,7 @@
 <?php 
 
+    session_start();
+
     $host="localhost";
     $name="root";
     $pass="";
@@ -21,14 +23,14 @@
         $sql = "INSERT INTO userdata (username,email,password) VALUES ('$uname','$uemail','$upass')";
         $con -> query ($sql);
         $con -> close();
-
-        header("Location: index.php ?error=sucess");
+        $_SESSION['error'] = "sucess";
+        header("Location: index.php");
         exit();
     }
     else{
-        header("Location: register.php ?error=mismatch");
+        $_SESSION['error'] = "mismatch";
+        header("Location: Rform.php");
         exit();
         }
         
-
- 
+    ?>
